@@ -7,13 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hungry/core/routes/app_router.dart';
+import 'package:hungry/hungry_app.dart';
 
-import 'package:hungry/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(HungryApp(approuter: AppRouter()));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
