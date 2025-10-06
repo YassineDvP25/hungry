@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hungry/core/routes/routes.dart';
 import 'package:hungry/features/auth/view/login_screen.dart';
+import 'package:hungry/features/auth/view/sign_up_screen.dart';
 import 'package:hungry/splash_screen.dart';
 
 class AppRouter {
@@ -10,6 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case Routes.signScreen:
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
 
       default:
         return null;

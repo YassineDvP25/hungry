@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/utils/validators.dart';
+import 'package:hungry/features/auth/components/text_form_field.dart';
 import 'package:hungry/features/auth/components/top_bar.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -21,112 +24,68 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          /// خلفية صورة الساندويتش
+          // Burger Background Image
           Image.asset(
             "assets/burger/how was your day_ 💕 😊.jpeg", // ضع صورة الساندويتش هنا
             fit: BoxFit.cover,
           ),
 
-          /// طبقة شفافة داكنة قليلاً لتوضيح النصوص
           Container(color: Colors.black.withValues(alpha: 0.5)),
 
-          /// واجهة تسجيل الدخول
+          /// auth
           SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 22.0).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Gap(20),
-                TopBar(title: 'Welcome back 👋', subtitle: ' Welcome to a culinary journey like no other!'),
-                  Gap(55),
-                  // cost SizedBox(height: 40),
+                  Gap(20.h),
+                  TopBar(
+                    title: 'Welcome back 👋',
+                    subtitle: ' Welcome to a culinary journey like no other!',
+                  ),
+                  Gap(40.h),
 
-                  // /// العنوان
-
-                  // const SizedBox(height: 8),
-
-                  // const SizedBox(height: 40),
-
-                  /// النموذج
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        /// حقل الإيميل
-                        TextFormField(
+                        // Email Field
+                        AuthTextFormField(
                           controller: _emailController,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
-                            labelText: "Email",
-                            labelStyle: const TextStyle(color: Colors.white70),
-                            prefixIcon: const Icon(
-                              Icons.email_outlined,
-                              color: Colors.white,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
+                          labelText: 'Email',
+                          icon: Icons.email_outlined,
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your email";
-                            }
-                            if (!value.contains("@")) {
-                              return "Enter a valid email";
-                            }
-                            return null;
+                            return emailValidation(value);
                           },
+                          obscureText: false,
                         ),
-                        const SizedBox(height: 16),
+                        Gap(14.h),
 
-                        /// حقل الباسوورد
-                        TextFormField(
+                        /// Pssword Field
+                        AuthTextFormField(
                           controller: _passwordController,
-                          obscureText: _obscurePassword,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
-                            labelText: "Password",
-                            labelStyle: const TextStyle(color: Colors.white70),
-                            prefixIcon: const Icon(
-                              Icons.lock_outline,
+                          labelText: 'Password',
+                          icon: Icons.lock_outline,
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _obscurePassword
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Colors.white,
                             ),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _obscurePassword
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _obscurePassword = !_obscurePassword;
-                                });
-                              },
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide.none,
-                            ),
+                            onPressed: () {
+                              setState(() {
+                                _obscurePassword = !_obscurePassword;
+                              });
+                            },
                           ),
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your password";
-                            }
-                            if (value.length < 6) {
-                              return "Password must be at least 6 characters";
-                            }
-                            return null;
+                            return passwordValidation(value);
                           },
+                          obscureText: _obscurePassword,
                         ),
 
-                        /// زر نسيان كلمة المرور
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
@@ -141,12 +100,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 20),
+                  Gap(18.h),
 
-                  /// زر تسجيل الدخول
+                  /// Login Button
                   SizedBox(
                     width: double.infinity,
-                    height: 50,
+                    height: 40.h,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF004D25),
@@ -159,10 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacementNamed(context, "/home");
                         }
                       },
-                      child: const Text(
+                      child: Text(
                         "Login",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -170,9 +129,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 16),
+                  Gap(14),
 
-                  /// رابط التسجيل
+                  /// Sign Up Link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -194,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
+                  Gap(40.h),
                 ],
               ),
             ),
