@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/routes/routes.dart';
 import 'package:hungry/core/utils/validators.dart';
 import 'package:hungry/features/auth/components/text_form_field.dart';
 import 'package:hungry/features/auth/components/top_bar.dart';
@@ -30,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
             fit: BoxFit.cover,
           ),
 
-          Container(color: Colors.black.withValues(alpha: 0.5)),
+          Container(color: Colors.black.withValues(alpha: 0.7)),
 
           /// auth
           SafeArea(
@@ -141,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "/signup");
+                          Navigator.pushNamed(context, Routes.signUpScreen);
                         },
                         child: const Text(
                           "Sign Up",

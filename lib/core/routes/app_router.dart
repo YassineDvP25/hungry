@@ -11,7 +11,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
-      case Routes.signScreen:
+      case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
 
       default:
