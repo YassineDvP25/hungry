@@ -5,6 +5,7 @@ import 'package:hungry/features/auth/view/sign_up_screen.dart';
 import 'package:hungry/features/cart/view/cart_screen.dart';
 import 'package:hungry/features/checkout/view/checkout_screen.dart';
 import 'package:hungry/features/home/view/home_screen.dart';
+import 'package:hungry/features/product/view/product_detail_screen.dart';
 import 'package:hungry/features/profile/view/profile_view.dart';
 import 'package:hungry/route.dart';
 import 'package:hungry/splash_screen.dart';
@@ -28,6 +29,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => CheckoutScreen());
       case Routes.profileScreen:
         return MaterialPageRoute(builder: (_) => ProfileScreen());
+      case Routes.productDetailScreen:
+        return MaterialPageRoute(builder: (_) => ProductDetailScreen());
 
       default:
         return null;
