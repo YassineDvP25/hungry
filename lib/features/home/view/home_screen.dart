@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 10),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.84,
+                  childAspectRatio: 0.82,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                 ),
@@ -49,6 +49,7 @@ class HomeScreen extends StatelessWidget {
                     mealImage: meal.mealImage,
                     mealName: meal.mealName,
                     mealType: meal.mealType,
+                    onTap: (){},
                   );
                 },
               ),
