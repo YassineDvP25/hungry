@@ -17,7 +17,7 @@ class HungryApp extends StatelessWidget {
 
       child: MaterialApp(
       
-        initialRoute: Routes.appRoute,
+        initialRoute: Routes.productDetailScreen,
 
         debugShowCheckedModeBanner: false,
         onGenerateRoute: approuter.generateRoute,
