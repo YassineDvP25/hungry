@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/custom_text.dart';
 
 class ToppingsAndSidesSection extends StatefulWidget {
   const ToppingsAndSidesSection({super.key});
@@ -12,14 +13,22 @@ class ToppingsAndSidesSection extends StatefulWidget {
 
 class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
   final List<Map<String, dynamic>> toppings = [
-    {"name": "Tomato", "image": "assets/toppings/tomato.png", "selected": false},
+    {
+      "name": "Tomato",
+      "image": "assets/toppings/tomato.png",
+      "selected": false,
+    },
     {"name": "Onions", "image": "assets/toppings/onion.png", "selected": false},
     {
       "name": "Pickles",
       "image": "assets/toppings/pickles.png",
       "selected": false,
     },
-    {"name": "Bacons", "image": "assets/toppings/bacons.png", "selected": false},
+    {
+      "name": "Bacons",
+      "image": "assets/toppings/bacons.png",
+      "selected": false,
+    },
   ];
 
   final List<Map<String, dynamic>> sides = [
@@ -30,7 +39,11 @@ class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
       "selected": false,
     },
     {"name": "Salad", "image": "assets/toppings/salad.png", "selected": false},
-    {"name": "sausage", "image": "assets/toppings/sausage.png", "selected": false},
+    {
+      "name": "Sausage",
+      "image": "assets/toppings/sausage.png",
+      "selected": false,
+    },
   ];
 
   void toggleSelection(List<Map<String, dynamic>> list, int index) {
@@ -45,13 +58,11 @@ class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Gap(24.h),
-        Text(
-          "Toppings",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18.sp,
-            color: Colors.black,
-          ),
+        CustomText(
+          text: "Toppings",
+          fontWeight: FontWeight.bold,
+          fontSize: 15.sp,
+          color: Colors.black,
         ),
         Gap(12.h),
         SizedBox(
@@ -71,14 +82,12 @@ class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
             },
           ),
         ),
-        Gap(30.h),
-        Text(
-          "Side options",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18.sp,
-            color: Colors.black,
-          ),
+        Gap(35.h),
+        CustomText(
+          text: "Side options",
+          fontWeight: FontWeight.bold,
+          fontSize: 15.sp,
+          color: Colors.black,
         ),
         Gap(12.h),
         SizedBox(
@@ -148,22 +157,18 @@ class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
             Expanded(
               flex: 3,
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 6.w,
-                  vertical: 6.h,
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Text(
-                        name,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      child: CustomText(
+                        text: name,
+                        overFlow: TextOverflow.ellipsis,
+
+                        color: Colors.white,
+                        fontSize: 10.sp,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     Container(
@@ -175,9 +180,8 @@ class _ToppingsAndSidesSectionState extends State<ToppingsAndSidesSection> {
                       ),
                       child: Icon(
                         selected ? Icons.remove : Icons.add,
-                        color: selected
-                            ? Colors.white
-                            : const Color(0xFF3E2723),
+                        color:
+                            selected ? Colors.white : const Color(0xFF3E2723),
                         size: 14.sp,
                       ),
                     ),
