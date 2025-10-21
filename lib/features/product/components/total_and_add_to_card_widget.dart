@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/custom_text.dart';
 
 class TotalAddToCartWidget extends StatelessWidget {
   final double total;
@@ -21,21 +22,13 @@ class TotalAddToCartWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Total',
-              style: TextStyle(
-                fontSize: 13.sp,
-                color: Colors.black54,
-              ),
-            ),
+          CustomText(text:'Total', fontSize: 15.sp, color: Colors.black ),
             Gap(2.h),
-            Text(
-              '\$${total.toStringAsFixed(2)}',
-              style: TextStyle(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+            CustomText(
+              text: '\$ ${total.toStringAsFixed(2)}',
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
             ),
           ],
         ),
@@ -48,13 +41,12 @@ class TotalAddToCartWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.r),
             ),
           ),
-          child: Text(
-            'Add To Cart',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w500,
-            ),
+          child: CustomText(
+            text: 'Add To Cart',
+            color: Colors.white,
+            fontSize: 15.sp,
+            fontWeight: FontWeight.w500,
+            fontFamily: '',
           ),
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/custom_text.dart';
 import 'package:hungry/features/product/components/toppings_and_sides_section.dart';
 import 'package:hungry/features/product/components/total_and_add_to_card_widget.dart';
 
@@ -76,13 +77,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
                       ),
                       Gap(10),
-                      Text(
-                        "Spicy",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: Colors.black87,
-                        ),
+                      CustomText(
+                        text: "Spicy",
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Colors.black87,
                       ),
                       Gap(10),
                       Row(
@@ -123,22 +122,21 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                       Align(
                         alignment: Alignment.topRight,
-                        child: Text(
-                          spicyLevel < 0.33
-                              ? "Mild 🌿"
-                              : spicyLevel < 0.66
-                              ? "Medium 🌶"
-                              : "Hot 🔥",
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                            color:
-                                spicyLevel < 0.33
-                                    ? Colors.green
-                                    : spicyLevel < 0.66
-                                    ? Colors.orange
-                                    : Colors.red,
-                          ),
+                        child: CustomText(
+                          text:
+                              spicyLevel < 0.33
+                                  ? "Mild 🌿"
+                                  : spicyLevel < 0.66
+                                  ? "Medium 🌶"
+                                  : "Hot 🔥",
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                          color:
+                              spicyLevel < 0.33
+                                  ? Colors.green
+                                  : spicyLevel < 0.66
+                                  ? Colors.orange
+                                  : Colors.red,
                         ),
                       ),
                     ],
