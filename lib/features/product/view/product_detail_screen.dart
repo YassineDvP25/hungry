@@ -6,7 +6,8 @@ import 'package:hungry/features/product/components/toppings_and_sides_section.da
 import 'package:hungry/features/product/components/total_and_add_to_card_widget.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({super.key});
+  final String? mealImage;
+  const ProductDetailScreen({super.key, this.mealImage});
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -33,7 +34,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 Expanded(
                   flex: 1,
                   child: Image.asset(
-                    "assets/burger/burger6.png",
+                    widget.mealImage!,
                     fit: BoxFit.contain,
                     height: 220,
                   ),

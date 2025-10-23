@@ -24,11 +24,11 @@ class HomeItemCardModel {
       'Veggie Burger',
       'fresh veggies',
     ),
-    HomeItemCardModel(
-      'assets/burger/burger5.png',
-      'Chicken Burger',
-      'Fried chicken',
-    ),
+    // HomeItemCardModel(
+    //   'assets/burger/burger5.png',
+    //   'Chicken Burger',
+    //   'Fried chicken',
+    // ),
     HomeItemCardModel(
       'assets/burger/burger6.png',
       'Spicy Jalapeño Burger',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hungry/core/constants/custom_text.dart';
 
 class HomeCategoryTabs extends StatefulWidget {
   const HomeCategoryTabs({super.key});
@@ -50,12 +51,10 @@ class _HomeCategoryTabsState extends State<HomeCategoryTabs> {
                         ]
                         : [],
               ),
-              child: Text(
-                categories[index],
-                style: TextStyle(
-                  color: isSelected ? Colors.white : Colors.black87,
-                  fontWeight: FontWeight.w600,
-                ),
+              child: CustomText(
+                text: categories[index],
+                color: isSelected ? Colors.white : Colors.black87,
+                fontWeight: FontWeight.w600,
               ),
             ),
           );
