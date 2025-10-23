@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/models/home_item_card_model.dart';
+
 import 'package:hungry/features/home/components/home_category_tabs.dart';
 import 'package:hungry/features/home/components/home_header.dart';
 import 'package:hungry/features/home/components/home_item_card.dart';
 import 'package:hungry/features/home/components/home_search_field.dart';
+import 'package:hungry/features/product/view/product_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20).r,
+        padding: EdgeInsets.symmetric(horizontal: 20).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             Gap(20.h),
 
             // Category Tabs
-            const HomeCategoryTabs(),
+            HomeCategoryTabs(),
             Gap(30.h),
 
             Expanded(
@@ -49,7 +52,16 @@ class HomeScreen extends StatelessWidget {
                     mealImage: meal.mealImage,
                     mealName: meal.mealName,
                     mealType: meal.mealType,
-                    onTap: (){},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailScreen(
+                            mealImage: meal.mealImage,
+                          ),
+                        ),
+                      );
+                    },
                   );
                 },
               ),
