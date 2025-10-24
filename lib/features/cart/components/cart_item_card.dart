@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+import 'package:hungry/core/constants/custom_text.dart';
 
 class CartItemCard extends StatelessWidget {
   final String image;
@@ -24,7 +26,7 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12.w),
+      padding: EdgeInsets.symmetric(horizontal:  25.w, vertical: 10.h),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
@@ -37,74 +39,78 @@ class CartItemCard extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12.r),
-            child: Image.asset(
-              image,
-              width: 65.w,
-              height: 65.h,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(width: 12.w),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
+          Column(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12.r),
+                child: Image.asset(
+                  image,
+                  width: 65.w,
+                  height: 65.h,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: title,
                     fontWeight: FontWeight.bold,
                     fontSize: 15.sp,
                     color: Colors.black87,
                   ),
-                ),
-                SizedBox(height: 4.h),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    fontSize: 13.sp,
-                    color: Colors.black54,
+                  SizedBox(height: 4.h),
+                  Text(
+                    subtitle,
+                    style: TextStyle(fontSize: 13.sp, color: Colors.black54),
                   ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(width: 10.w),
-          Row(
-            children: [
-              _qtyButton(Icons.remove, onDecrement),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.w),
-                child: Text(
-                  "$initialQuantity",
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+                ],
               ),
-              _qtyButton(Icons.add, onIncrement),
             ],
           ),
-          SizedBox(width: 10.w),
-          ElevatedButton(
-            onPressed: onRemove,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF004D25),
-              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.r),
+          Column(
+            children: [
+              Row(
+                children: [
+                  _qtyButton(Icons.remove, onDecrement),
+                  Gap(10.w),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: Text(
+                      "$initialQuantity",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Gap(10.w),
+
+                  _qtyButton(Icons.add, onIncrement),
+                ],
               ),
-            ),
-            child: Text(
-              "Remove",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 13.sp,
+              Gap(25.h),
+
+              ElevatedButton(
+                onPressed: onRemove,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF004D25),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30.w,
+                    vertical: 8.h,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                ),
+                child: Text(
+                  "Remove",
+                  style: TextStyle(color: Colors.white, fontSize: 13.sp),
+                ),
               ),
-            ),
+            ],
           ),
         ],
       ),
