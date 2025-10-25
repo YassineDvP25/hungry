@@ -63,39 +63,26 @@ class _CartScreenState extends State<CartScreen> {
     },
   ];
 
-  double get totalPrice => cartItems.fold(
-        0,
-        (sum, item) => sum + item["price"] * item["quantity"],
-      );
+  double get totalPrice =>
+      cartItems.fold(0, (sum, item) => sum + item["price"] * item["quantity"]);
 
   void removeItem(int index) => setState(() => cartItems.removeAt(index));
   void increment(int index) => setState(() => cartItems[index]["quantity"]++);
   void decrement(int index) => setState(() {
-        if (cartItems[index]["quantity"] > 1) cartItems[index]["quantity"]--;
-      });
+    if (cartItems[index]["quantity"] > 1) cartItems[index]["quantity"]--;
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        title: Text(
-          "My Cart",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 18.sp,
-          ),
-        ),
-        centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.black),
-      ),
+
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
+          
           children: [
+            Gap(30.h),
             Expanded(
               child: ListView.separated(
                 itemCount: cartItems.length,
@@ -106,17 +93,16 @@ class _CartScreenState extends State<CartScreen> {
                     image: item["image"],
                     title: item["title"],
                     subtitle: item["subtitle"],
-                    initialQuantity: 
-                      item["quantity"],
+                    initialQuantity: item["quantity"],
                     onRemove: () => removeItem(index),
-                  onIncrement  : () => increment(index),
-                  onDecrement  : () => decrement(index),
+                    onIncrement: () => increment(index),
+                    onDecrement: () => decrement(index),
                   );
                 },
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.h),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -155,7 +141,9 @@ class _CartScreenState extends State<CartScreen> {
                   ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Proceeding to Checkout...")),
+                        const SnackBar(
+                          content: Text("Proceeding to Checkout..."),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
@@ -165,7 +153,7 @@ class _CartScreenState extends State<CartScreen> {
                         vertical: 14.h,
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25.r),
+                        borderRadius: BorderRadius.circular(15.r),
                       ),
                     ),
                     child: Text(
