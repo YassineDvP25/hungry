@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hungry/core/widgets/app_bottom_app_bar.dart';
 import 'package:hungry/features/cart/view/cart_screen.dart';
 import 'package:hungry/features/checkout/view/checkout_screen.dart';
