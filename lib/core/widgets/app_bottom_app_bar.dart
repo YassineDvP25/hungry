@@ -3,33 +3,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppBottomAppBar extends StatefulWidget {
   final PageController controller;
-  const AppBottomAppBar({super.key, required this.controller});
+  const AppBottomAppBar({
+    super.key,
+    required this.controller,
+  });
 
   @override
   State<AppBottomAppBar> createState() => _AppBottomAppBarState();
 }
 
 class _AppBottomAppBarState extends State<AppBottomAppBar> {
+
   final List<IconData> _icons = [
     Icons.home_outlined,
     Icons.shopping_cart_outlined,
     Icons.local_restaurant_outlined,
     Icons.person_outline,
   ];
-    int _selectedIndex = 0;
+  int _selectedIndex = 0;
 
-
-  void _onItemTapped(int index) {
+  void _onItemTapped(int index ) {
     setState(() {
       _selectedIndex = index;
     });
     widget.controller.jumpToPage(_selectedIndex);
+
     // يمكنك التنقل بين الصفحات هنا حسب الفهرس:
     // Navigator.pushNamed(context, routes[index]);
   }
 
   @override
   Widget build(BuildContext context) {
+
     return BottomAppBar(
       color: const Color(0xFF004D25), // الأخضر الداكن
       notchMargin: 8,
@@ -41,7 +46,7 @@ class _AppBottomAppBarState extends State<AppBottomAppBar> {
           children: List.generate(_icons.length, (index) {
             final isSelected = _selectedIndex == index;
             return GestureDetector(
-              onTap: () => _onItemTapped(index),
+              onTap: () => _onItemTapped(index ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
