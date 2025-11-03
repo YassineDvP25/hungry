@@ -1,0 +1,77 @@
+import 'package:dio/dio.dart';
+import 'package:hungry/core/network/api_exceptions.dart';
+import 'package:hungry/core/network/dio_client.dart';
+
+class ApiService {
+  final DioClient _dioClient = DioClient();
+
+  /// GET request
+  Future<dynamic> getRequest(
+    String endpoint
+     
+  ) async {
+    try {
+      final response = await _dioClient.dio.get(
+        endpoint,
+         
+      );
+      return response.data;
+    } on DioException catch (e) {
+      throw ApiException.fromDioError(e);
+    }
+  }
+
+  /// POST request
+  Future<dynamic> postRequest(
+    String endpoint, {
+    dynamic data,
+     
+  }) async {
+    try {
+      final response = await _dioClient.dio.post(
+        endpoint,
+        data: data,
+         
+      );
+      return response.data;
+    } on DioException catch (e) {
+      throw ApiException.fromDioError(e);
+    }
+  }
+
+  /// PUT request
+  Future<dynamic> putRequest(
+    String endpoint, {
+    dynamic data,
+     
+  }) async {
+    try {
+      final response = await _dioClient.dio.put(
+        endpoint,
+        data: data,
+         
+      );
+      return response.data;
+    } on DioException catch (e) {
+      throw ApiException.fromDioError(e);
+    }
+  }
+
+  /// DELETE request
+  Future<dynamic> deleteRequest(
+    String endpoint, {
+    dynamic data,
+     
+  }) async {
+    try {
+      final response = await _dioClient.dio.delete(
+        endpoint,
+        data: data,
+         
+      );
+      return response.data;
+    } on DioException catch (e) {
+      throw ApiException.fromDioError(e);
+    }
+  }
+}
