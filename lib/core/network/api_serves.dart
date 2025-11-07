@@ -23,10 +23,10 @@ class ApiService {
 
   /// POST request
   Future<dynamic> postRequest(
-    String endpoint, {
-    dynamic data,
+    String endpoint, 
+    Map<String, dynamic> data,
      
-  }) async {
+  ) async {
     try {
       final response = await _dioClient.dio.post(
         endpoint,
@@ -41,10 +41,10 @@ class ApiService {
 
   /// PUT request
   Future<dynamic> putRequest(
-    String endpoint, {
-    dynamic data,
+    String endpoint, 
+    Map<String, dynamic> data,
      
-  }) async {
+  ) async {
     try {
       final response = await _dioClient.dio.put(
         endpoint,
@@ -59,10 +59,10 @@ class ApiService {
 
   /// DELETE request
   Future<dynamic> deleteRequest(
-    String endpoint, {
-    dynamic data,
+    String endpoint, 
+      Map<String, dynamic> data,
      
-  }) async {
+  ) async {
     try {
       final response = await _dioClient.dio.delete(
         endpoint,
