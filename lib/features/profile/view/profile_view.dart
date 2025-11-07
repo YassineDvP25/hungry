@@ -32,15 +32,15 @@ class ProfileScreen extends StatelessWidget {
             Gap(40.h),
 
             /// ===== Name =====
-            _buildProfileField(label: "Name", value: "Knuckles"),
+            _buildProfileField(label: "Name", value: "Yassine"),
             Gap(16.h),
 
             /// ===== Email =====
-            _buildProfileField(label: "Email", value: "Knuckles@gmail.com"),
+            _buildProfileField(label: "Email", value: "Yassine320@gmail.com"),
             Gap(16.h),
 
             /// ===== Address =====
-            _buildProfileField(label: "Delivery address", value: "55Dubai, UAE"),
+            _buildProfileField(label: "Delivery address", value: "55Morocco, MAR"),
             Gap(16.h),
 
             /// ===== Password =====
