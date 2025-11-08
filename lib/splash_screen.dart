@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:hungry/core/constants/app_colors.dart';
-import 'package:hungry/features/home/view/home_screen.dart'; // أو أي شاشة البداية لديك
+import 'package:hungry/features/home/view/home_screen.dart';
+import 'package:hungry/route.dart'; // أو أي شاشة البداية لديك
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -50,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) => const AppRoute()),
       );
     });
   }
@@ -98,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ),
 
-              Gap(50.h),
+              Gap(10.h),
             ],
           ),
         ),
