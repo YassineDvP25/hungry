@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/core/routes/routes.dart';
-import 'package:hungry/features/auth/view/login_screen.dart';
+import 'package:hungry/features/auth/login/cubit/login_cubit.dart';
+import 'package:hungry/features/auth/login/view/login_screen.dart';
 import 'package:hungry/features/auth/view/sign_up_screen.dart';
 import 'package:hungry/features/cart/view/cart_screen.dart';
 import 'package:hungry/features/checkout/view/checkout_screen.dart';
@@ -16,7 +18,13 @@ class AppRouter {
       case Routes.splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => LoginCubit(),
+                child: LoginScreen(),
+              ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
       case Routes.appRoute:

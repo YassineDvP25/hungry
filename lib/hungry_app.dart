@@ -17,14 +17,14 @@ class HungryApp extends StatelessWidget {
       designSize: Size(375, 812),
 
       child: MaterialApp(
-        initialRoute: Routes.splashScreen,
+        initialRoute: Routes.loginScreen,
         routes: {
           Routes.homeScreen: (context) => HomeScreen(),
           Routes.cartScreen: (context) => CartScreen(),
           Routes.checkoutScreen: (context) => CheckoutScreen(),
           Routes.profileScreen: (context) => ProfileScreen(),
         },
-
+      
         debugShowCheckedModeBanner: false,
         onGenerateRoute: approuter.generateRoute,
       ),
