@@ -5,16 +5,16 @@ import 'package:hungry/core/network/api_serves.dart';
 import 'package:hungry/core/utils/pref_helper.dart';
 import 'package:hungry/features/auth/data/auth_model.dart';
 
-
 class AuthRepo {
   ApiService apiService = ApiService();
   bool isGuest = false;
   UserModel? _currentUser;
 
   /// Login
-  Future<UserModel?> login(String email, String password) async {
+  Future<UserModel?> login(String name, String email, String password) async {
     try {
       final response = await apiService.postRequest('/login', {
+        'name': name,
         'email': email,
         'password': password,
       });
@@ -29,16 +29,17 @@ class AuthRepo {
 
         print('📡 Login response - code: $code, data: $data');
 
-        if (code != 200 && code != 201) {
+        if (code != 200 && code != 201 && data == null) {
+          print(msg);
           throw ApiError(message: msg ?? 'Unknown error');
         }
 
         final user = UserModel.fromJson(data);
-        print('🔐 Login successful - User token: ${user.token ?? 'null'}');
+        // print('🔐 Login successful - User token: ${user.token ?? 'null'}');
 
         if (user.token != null) {
           await PrefHelper.saveToken(user.token!);
-          print('💾 Token saved to storage: ${user.token}');
+          // print('💾 Token saved to storage: ${user.token}');
         } else {
           print('⚠️ No token received from server!');
         }

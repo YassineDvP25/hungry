@@ -7,10 +7,15 @@ class ApiException implements Exception {
   ApiException(this.message, [this.statusCode]);
 
   @override
-  String toString() => 'ApiException ($statusCode): $message';
+  String toString() => message;
 
   /// Factory method to handle Dio errors gracefully
   factory ApiException.fromDioError(DioException error) {
+    var data = error.response?.data;
+    if (data is Map<String, dynamic> && data["message"] != null) {
+      print(data["message"]);
+      return ApiException(data["message"]);
+    }
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
         return ApiException("Connection timeout. Please try again later.");
@@ -25,19 +30,21 @@ class ApiException implements Exception {
       case DioExceptionType.cancel:
         return ApiException("Request was cancelled by the user.");
       case DioExceptionType.connectionError:
-        return ApiException("Failed to connect to the server. Check your internet connection.");
+        return ApiException(
+          "Failed to connect to the server. Check your internet connection.",
+        );
       case DioExceptionType.unknown:
         return ApiException("An unexpected error occurred. Please try again.");
-      
     }
   }
 
   /// Handle different HTTP response codes
   static ApiException _handleBadResponse(Response? response) {
     final statusCode = response?.statusCode;
-    final message = response?.data is Map && response?.data['message'] != null
-        ? response?.data['message'].toString()
-        : "Something went wrong while processing your request.";
+    final message =
+        response?.data is Map && response?.data['message'] != null
+            ? response?.data['message'].toString()
+            : "Something went wrong while processing your request.";
 
     switch (statusCode) {
       case 400:
@@ -45,11 +52,20 @@ class ApiException implements Exception {
       case 401:
         return ApiException("Unauthorized: Please log in again.", statusCode);
       case 403:
-        return ApiException("Forbidden: You don’t have permission to access this resource.", statusCode);
+        return ApiException(
+          "Forbidden: You don’t have permission to access this resource.",
+          statusCode,
+        );
       case 404:
-        return ApiException("Not Found: The requested resource could not be found.", statusCode);
+        return ApiException(
+          "Not Found: The requested resource could not be found.",
+          statusCode,
+        );
       case 500:
-        return ApiException("Internal Server Error. Please try again later.", statusCode);
+        return ApiException(
+          "Internal Server Error. Please try again later.",
+          statusCode,
+        );
       default:
         return ApiException(message!, statusCode);
     }
