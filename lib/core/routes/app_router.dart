@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hungry/core/routes/routes.dart';
 import 'package:hungry/features/auth/login/cubit/login_cubit.dart';
 import 'package:hungry/features/auth/login/view/login_screen.dart';
-import 'package:hungry/features/auth/view/sign_up_screen.dart';
+import 'package:hungry/features/auth/sign_up/cubit/sign_up_cubit.dart';
+import 'package:hungry/features/auth/sign_up/view/sign_up_screen.dart';
 import 'package:hungry/features/cart/view/cart_screen.dart';
 import 'package:hungry/features/checkout/view/checkout_screen.dart';
 import 'package:hungry/features/home/view/home_screen.dart';
@@ -26,7 +27,13 @@ class AppRouter {
               ),
         );
       case Routes.signUpScreen:
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => SignUpCubit(),
+                child: SignUpScreen(),
+              ),
+        );
       case Routes.appRoute:
         return MaterialPageRoute(builder: (_) => AppRoute());
       case Routes.homeScreen:
