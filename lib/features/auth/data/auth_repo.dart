@@ -58,12 +58,19 @@ class AuthRepo {
   }
 
   /// Signup
-  Future<UserModel?> signup(String name, String email, String password) async {
+  Future<UserModel?> signup(
+    String name,
+    String email,
+    String phoneNumber,
+    String password,
+  ) async {
     try {
       final response = await apiService.postRequest('/register', {
         'name': name,
-        'password': password,
+
         'email': email,
+        'phone': phoneNumber,
+        'password': password,
       });
       if (response is ApiError) {
         throw response;

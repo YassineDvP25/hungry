@@ -17,7 +17,7 @@ class HungryApp extends StatelessWidget {
       designSize: Size(375, 812),
 
       child: MaterialApp(
-        initialRoute: Routes.loginScreen,
+        initialRoute: Routes.signUpScreen,
         routes: {
           Routes.homeScreen: (context) => HomeScreen(),
           Routes.cartScreen: (context) => CartScreen(),
