@@ -40,7 +40,8 @@ class HomeItemCard extends StatelessWidget {
             // صورة البرجر
             ClipRRect(
               borderRadius: BorderRadius.circular(12).r,
-              child: Image.asset(
+              child: Image.
+              asset(
                 mealImage, // ← ضع مسار الصورة هنا
                 height: 100.h,
                 width: double.infinity,
@@ -56,7 +57,7 @@ class HomeItemCard extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              mealName,
+              mealType,
               style: TextStyle(color: Colors.grey[600], fontSize: 13),
             ),
             const SizedBox(height: 8),
