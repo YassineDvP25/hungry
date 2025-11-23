@@ -6,16 +6,17 @@ class ApiService {
   final DioClient _dioClient = DioClient();
 
   /// GET request
-  Future<dynamic> getRequest(
-    String endpoint
-     
-  ) async {
+ Future<T> getRequest<T>(
+    String endpoint, {
+    required T Function(Map<String, dynamic>) fromJson,
+    Map<String, dynamic>? queryParams,
+  }) async {
     try {
       final response = await _dioClient.dio.get(
         endpoint,
-         
+        queryParameters: queryParams,
       );
-      return response.data;
+      return fromJson(response.data);
     } on DioException catch (e) {
       throw ApiException.fromDioError(e);
     }

@@ -43,9 +43,9 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> login(context) async {
     if (formKey.currentState!.validate()) {
+      emit(LoginLoading());
       try {
-        emit(LoginLoading());
-        final user = await authRepo.login(
+      final user = await authRepo.login(
           nameController.text.trim(),
 
           emailController.text.trim(),

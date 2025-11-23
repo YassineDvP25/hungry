@@ -104,24 +104,24 @@ class AuthRepo {
     }
   }
 
-  /// Get Profile data
-  Future<UserModel?> getProfileData() async {
-    try {
-      final token = await PrefHelper.getToken();
-      if (token == null || token == 'guest') {
-        return null;
-      }
+  // /// Get Profile data
+  // Future<UserModel?> getProfileData() async {
+  //   try {
+  //     final token = await PrefHelper.getToken();
+  //     if (token == null || token == 'guest') {
+  //       return null;
+  //     }
 
-      final response = await apiService.getRequest('/profile');
-      final user = UserModel.fromJson(response['data']);
-      _currentUser = user;
-      return user;
-    } on DioException catch (e) {
-      throw ApiException.fromDioError(e);
-    } catch (e) {
-      throw ApiError(message: e.toString());
-    }
-  }
+  //     final response = await apiService.getRequest('/profile');
+  //     final user = UserModel.fromJson(response['data']);
+  //     _currentUser = user;
+  //     return user;
+  //   } on DioException catch (e) {
+  //     throw ApiException.fromDioError(e);
+  //   } catch (e) {
+  //     throw ApiError(message: e.toString());
+  //   }
+  // }
 
   /// update profile data
   // Future<UserModel?> updateProfileData({
@@ -182,35 +182,35 @@ class AuthRepo {
     isGuest = true;
   }
 
-  /// auto login
-  Future<UserModel?> autoLogin() async {
-    final token = await PrefHelper.getToken();
-    print('🔑 Token from storage: ${token ?? 'null'}');
+  // /// auto login
+  // Future<UserModel?> autoLogin() async {
+  //   final token = await PrefHelper.getToken();
+  //   print('🔑 Token from storage: ${token ?? 'null'}');
 
-    if (token == null || token == 'guest') {
-      print('❌ No valid token found - setting as guest');
-      isGuest = true;
-      _currentUser = null;
-      return null;
-    }
+  //   if (token == null || token == 'guest') {
+  //     print('❌ No valid token found - setting as guest');
+  //     isGuest = true;
+  //     _currentUser = null;
+  //     return null;
+  //   }
 
-    print('✅ Valid token found - attempting to fetch profile');
-    isGuest = false;
+  //   print('✅ Valid token found - attempting to fetch profile');
+  //   isGuest = false;
 
-    try {
-      final user = await getProfileData();
-      print('✅ Profile data fetched successfully');
-      _currentUser = user;
-      return user;
-    } catch (e) {
-      print('❌ Profile fetch failed: $e');
-      print('🧹 Clearing invalid token and setting as guest');
-      await PrefHelper.clear();
-      isGuest = true;
-      _currentUser = null;
-      return null;
-    }
-  }
+  //   try {
+  //     final user = await getProfileData();
+  //     print('✅ Profile data fetched successfully');
+  //     _currentUser = user;
+  //     return user;
+  //   } catch (e) {
+  //     print('❌ Profile fetch failed: $e');
+  //     print('🧹 Clearing invalid token and setting as guest');
+  //     await PrefHelper.clear();
+  //     isGuest = true;
+  //     _currentUser = null;
+  //     return null;
+  //   }
+  // }
 
   /// continue as guest
   Future<void> continueAsGuest() async {
