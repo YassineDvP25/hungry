@@ -1,16 +1,61 @@
-# hungry
+<div align="center">
 
-A new Flutter project.
+# 🍔 Hungry App  
+### تطبيق طلب طعام حديث تم تطويره باستخدام Flutter
 
-## Getting Started
+<img src="assets/mockup.png" width="250"/>
 
-This project is a starting point for a Flutter application.
+</div>
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📌 مقدمة
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Hungry App** هو تطبيق متكامل لإدارة طلبات الطعام يعتمد على واجهات احترافية وتجربة مستخدم سلسة.  
+تم تطويره باستخدام **Flutter** مع الاعتماد على **Clean Architecture** و **State Management (Cubit/BLoC)** لضمان أداء عالي وقابلية للتوسع.
+
+---
+
+## 🚀 المميزات الرئيسية
+
+### ✔️ واجهات UI حديثة  
+- شاشة ترحيب  
+- شاشة تسجيل الدخول  
+- شاشة إنشاء حساب  
+- شاشة عرض المنتجات  
+- تخصيص المنتج (Toppings, Sides, Spiciness)  
+- شاشة السلة Cart  
+- شاشة الشراء Checkout  
+
+### ✔️ إدارة حالة قوية  
+- استخدام **Cubit** مع تصميم منظم ومنفصل بين المنطق والواجهات.
+
+### ✔️ Clean Architecture  
+- فصل كامل بين:  
+  - UI  
+  - Logic  
+  - Data Layer  
+
+### ✔️ دعم API  
+- استخدام **Dio** للتعامل مع REST APIs  
+- معالجة الأخطاء عبر ملفات مخصصة.
+
+---
+
+## 📱 Screenshots
+
+<div align="center">
+
+| Splash | Home | Product | Cart | Checkout |
+|-------|------|---------|------|----------|
+| <img src="screenshots/splash.png" width="200"/> | <img src="screenshots/home.png" width="200"/> | <img src="screenshots/product.png" width="200"/> | <img src="screenshots/cart.png" width="200"/> | <img src="screenshots/checkout.png" width="200"/> |
+
+</div>
+
+> ✨ يمكنك استبدال الصور بالمسارات الفعلية من مجلد screenshots في مشروعك.
+
+---
+
+## 🧩 هيكلة المشروع
+
+
