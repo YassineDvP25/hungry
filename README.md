@@ -56,6 +56,7 @@ https://github.com/user-attachments/assets/d2f4d69c-07b5-4e4c-bd4c-2835aa6fff76
 
 ### 🧩 Project structuring
 
+<div align="left">
 lib/
 ├── core/
 │ ├── network/
@@ -68,6 +69,10 @@ lib/
 │ ├── cart/
 │ └── checkout/
 └── hungry_app.dart
+</div>
+
+
+
 
 
 
