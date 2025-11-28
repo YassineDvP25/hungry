@@ -1,11 +1,12 @@
-<img width="1480" height="2740" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/67eceb73-c047-4714-a43e-5974b523bf19" /><div align="center">
+<div align="center">
 
-# 🍔 Hungry App  
+# 🍔 Hungry App 
+
+
+
+<img width="1480" height="2740" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/54db7073-87b5-42ab-866f-08d1eb649d6c" />
+ 
 ### تطبيق طلب طعام حديث تم تطويره باستخدام Flutter
-
-<img src="<img width="1480" height="2740" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/af75224d-ed2b-4af4-8e49-32b24501f4dc" />
-" width="250"/>
-
 </div>
 
 ---
@@ -49,7 +50,8 @@
 
 | Splash | Home | Product | Cart | Checkout |
 |-------|------|---------|------|----------|
-| <img src="screenshots/splash.png" width="200"/> | <img src="screenshots/home.png" width="200"/> | <img src="screenshots/product.png" width="200"/> | <img src="screenshots/cart.png" width="200"/> | <img src="screenshots/checkout.png" width="200"/> |
+|<img width="1000" height="2000" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/54db7073-87b5-42ab-866f-08d1eb649d6c" />
+| <img src="screenshots/home.png" width="200"/> | <img src="screenshots/product.png" width="200"/> | <img src="screenshots/cart.png" width="200"/> | <img src="screenshots/checkout.png" width="200"/> |
 
 </div>
 
