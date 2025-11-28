@@ -1,9 +1,10 @@
-<div align="center">
+<img width="1480" height="2740" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/67eceb73-c047-4714-a43e-5974b523bf19" /><div align="center">
 
 # 🍔 Hungry App  
 ### تطبيق طلب طعام حديث تم تطويره باستخدام Flutter
 
-<img src="assets/mockup.png" width="250"/>
+<img src="<img width="1480" height="2740" alt="Screenshot_2025-11-23-05-03-55-03_04eccd26801723db85b984f2570147de-portrait" src="https://github.com/user-attachments/assets/af75224d-ed2b-4af4-8e49-32b24501f4dc" />
+" width="250"/>
 
 </div>
 
