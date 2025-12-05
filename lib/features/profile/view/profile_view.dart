@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
                 height: 100.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 3.w),
+                  border: Border.all(color: Colors.grey.shade300, width: 3.w),
                   image: const DecorationImage(
                     image: AssetImage("assets/mr_bean.jpeg"),
                     fit: BoxFit.cover,
@@ -32,15 +32,15 @@ class ProfileScreen extends StatelessWidget {
             Gap(40.h),
 
             /// ===== Name =====
-            _buildProfileField(label: "Name", value: "Knuckles"),
+            _buildProfileField(label: "Name", value: "Yassine"),
             Gap(16.h),
 
             /// ===== Email =====
-            _buildProfileField(label: "Email", value: "Knuckles@gmail.com"),
+            _buildProfileField(label: "Email", value: "yassine00@gmail.com"),
             Gap(16.h),
 
             /// ===== Address =====
-            _buildProfileField(label: "Delivery address", value: "55Dubai, UAE"),
+            _buildProfileField(label: "Delivery address", value: "55 Erra, Mar"),
             Gap(16.h),
 
             /// ===== Password =====

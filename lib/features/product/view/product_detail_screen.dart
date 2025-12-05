@@ -148,7 +148,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Gap(50.h),
             ToppingsAndSidesSection(),
             Spacer(),
-            TotalAddToCartWidget(total: 200, onAddToCart: () {}),
+            TotalAddToCartWidget(total: 16.50, onAddToCart: () {}),
           ],
         ),
       ),

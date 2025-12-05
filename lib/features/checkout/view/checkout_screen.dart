@@ -13,7 +13,7 @@ class _PaymentScreenState extends State<CheckoutScreen> {
   String selectedMethod = "cash";
   bool saveCard = true;
 
-  final double order = 16.48;
+  final double order = 23.88;
   final double taxes = 0.3;
   final double delivery = 1.5;
 

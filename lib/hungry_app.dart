@@ -6,6 +6,7 @@ import 'package:hungry/features/cart/view/cart_screen.dart';
 import 'package:hungry/features/checkout/view/checkout_screen.dart';
 import 'package:hungry/features/home/view/home_screen.dart';
 import 'package:hungry/features/profile/view/profile_view.dart';
+import 'package:hungry/splash_screen.dart';
 
 class HungryApp extends StatelessWidget {
   final AppRouter approuter;
@@ -17,12 +18,13 @@ class HungryApp extends StatelessWidget {
       designSize: Size(375, 812),
 
       child: MaterialApp(
-        initialRoute: Routes.appRoute,
+        initialRoute: Routes.splashScreen,
         routes: {
           Routes.homeScreen: (context) => HomeScreen(),
           Routes.cartScreen: (context) => CartScreen(),
           Routes.checkoutScreen: (context) => CheckoutScreen(),
           Routes.profileScreen: (context) => ProfileScreen(),
+          Routes.splashScreen: (context) => SplashScreen(),
         },
       
         debugShowCheckedModeBanner: false,

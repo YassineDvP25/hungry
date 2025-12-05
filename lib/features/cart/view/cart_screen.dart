@@ -12,55 +12,21 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   final List<Map<String, dynamic>> cartItems = [
-    {
+   {
       "image": "assets/burger/burger9.png",
-      "title": "Hamburger",
-      "subtitle": "Veggie Burger",
+      "title": "Fish Burger",
+      "subtitle": "tartar sauce",
       "price": 9.29,
       "quantity": 2,
     },
     {
       "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
+      "title": "BBQ Bacon ",
+      "subtitle": "crispy bacon",
+      "price": 5.30,
       "quantity": 1,
     },
-    {
-      "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
-      "quantity": 1,
-    },
-    {
-      "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
-      "quantity": 1,
-    },
-    {
-      "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
-      "quantity": 1,
-    },
-    {
-      "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
-      "quantity": 1,
-    },
-    {
-      "image": "assets/burger/burger3.png",
-      "title": "Hamburger",
-      "subtitle": "Chicken Burger",
-      "price": 8.90,
-      "quantity": 1,
-    },
+  
   ];
 
   double get totalPrice =>

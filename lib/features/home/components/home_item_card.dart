@@ -40,8 +40,7 @@ class HomeItemCard extends StatelessWidget {
             // صورة البرجر
             ClipRRect(
               borderRadius: BorderRadius.circular(12).r,
-              child: Image.
-              asset(
+              child: Image.asset(
                 mealImage, // ← ضع مسار الصورة هنا
                 height: 100.h,
                 width: double.infinity,
@@ -68,7 +67,7 @@ class HomeItemCard extends StatelessWidget {
                     Icon(Icons.star, color: Colors.orange, size: 16),
                     SizedBox(width: 3.w),
                     Text(
-                      "4.8",
+                      "${mealName.length < 20 ? mealName.length - 10 : mealName.length - 15}.${(mealName.length < 20 ? mealName.length - 10 : mealName.length - 15) - 1}",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 14,
